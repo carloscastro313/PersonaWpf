@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +58,12 @@
     </ApplicationDefinition>
     <Compile Include="Componentes\Form.xaml.cs">
       <DependentUpon>Form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Fetch.cs" />
+    <Compile Include="TestingDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestingDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Vistas\ModificarPersonaForm.xaml.cs">
       <DependentUpon>ModificarPersonaForm.xaml</DependentUpon>
@@ -111,6 +118,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TestingDataSet.xsc">
+      <DependentUpon>TestingDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TestingDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestingDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestingDataSet.xss">
+      <DependentUpon>TestingDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

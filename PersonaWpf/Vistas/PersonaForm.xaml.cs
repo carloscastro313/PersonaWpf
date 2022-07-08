@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
 
 namespace PersonaWpf.Vistas
 {
@@ -8,15 +7,14 @@ namespace PersonaWpf.Vistas
     /// </summary>
     public partial class PersonaForm : Window
     {
-        private ObservableCollection<Persona> _personas;
         public Persona persona;
-
-        public PersonaForm(ObservableCollection<Persona> personas)
+        public Fetch<Persona> _fetch;
+        public PersonaForm(Fetch<Persona> fetch)
         {
             InitializeComponent();
             persona = new Persona();
+            _fetch = fetch;
             frmPersona.DataContext = persona;
-            _personas = personas;
         }
 
         private void btnCrear_Click(object sender, RoutedEventArgs e)
@@ -25,7 +23,8 @@ namespace PersonaWpf.Vistas
             {
                 throw new System.Exception("Todos los campos son obligatorios");
             }
-            _personas.Add(persona);
+
+            _fetch.InsertInto("Persona", persona);
 
             this.Close();
         }
